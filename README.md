@@ -92,29 +92,41 @@ The system is evaluated end-to-end in **ns-3** using a realistic heterogeneous m
 ```
 oran-adaptive-traffic-steering/
 ├── README.md
+├── environment.yml             # Conda environment (Python 3.10, PyTorch, Gymnasium, SB3)
 │
-├── rl_agent/               # Dueling DQN implementation (Python / PyTorch)
-│   ├── model.py            #   Network architecture (shared trunk + value/advantage heads)
-│   ├── train.py            #   Training loop, replay buffer, ε-greedy exploration
-│   └── export_onnx.py      #   Export trained weights to ONNX for ns-3 inference
+├── rl_agent/                   # Python PoC: Dueling DQN training environment
+│   └── rl_ts_oran_poc.py       #   RL env, slice-aware reward, training loop, ONNX export
 │
-├── rule_based/             # Rule-based traffic steering policy
-│   └── policy.py           #   Three-phase capacity management logic
+├── data_generation/            # Scenario and UE data generation scripts
+│   ├── generate_scenarios.py   #   Generates UE records (slice, position, throughput demand)
+│   └── visualize.py            #   Network topology and allocation visualizations
 │
-├── hybrid_controller/      # Hybrid switching logic
-│   └── controller.py       #   Hysteresis + health-trigger override
+├── data/                       # Sample simulation input data
+│   ├── cells.csv               #   Base station configuration (3 tiers × 3 BSs)
+│   └── ue_samples.csv          #   UE records (slice, position, throughput demand)
 │
-├── ns3_simulation/         # ns-3.45 simulation scripts and helpers
-│   ├── scenario.cc         #   Main simulation entry point
-│   ├── hybrid.py           #   Batch runner for hybrid policy evaluation
-│   └── eval_results.csv    #   Raw simulation results
-│
-└── plots/                  # Result visualisation scripts
-    └── plot_results.py
+└── models/                     # Trained model artifacts
+    ├── best_model.pth          #   Best checkpoint (PyTorch, ~288 KB)
+    ├── best_model.onnx         #   ONNX export of best checkpoint (~285 KB)
+    └── traffic_steering_rl_model.onnx  # Final deployment model (ONNX, ~285 KB)
 ```
 
-> **Note:** Code files are being cleaned and documented; full release will follow paper acceptance.
+> **Note:** The ns-3.45 simulation module and hybrid controller implementation will be released upon paper acceptance.
 > For questions about a specific component, open an issue or contact the authors directly.
+
+### Getting Started
+
+```bash
+# 1. Create conda environment
+conda env create -f environment.yml
+conda activate oran
+
+# 2. Run the RL training PoC
+python rl_agent/rl_ts_oran_poc.py
+
+# 3. Inspect trained models
+python -c "import torch; m = torch.load('models/best_model.pth'); print(m)"
+```
 
 ---
 
