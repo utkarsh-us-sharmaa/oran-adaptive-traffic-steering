@@ -1,8 +1,5 @@
 # Adaptive RAN Traffic Steering via Hybrid Rule-Based and Reinforcement Learning
 
-> **Companion repository for the paper:**
-> *"Hybrid Rule-Based and Reinforcement Learning Traffic Steering in Open RAN"*
-> Utkarsh Sharma, Yuchen Liu — Computer Networks (Elsevier), 2025 (under review)
 
 ---
 
@@ -167,11 +164,10 @@ If you use this work, please cite:
 
 ## Contact
 
-**Utkarsh Sharma** · PhD Student, NC State University (CSC)
+**Utkarsh Sharma** · NC State University (CSC)
 usharma3@ncsu.edu · [GitHub](https://github.com/utkarsh-us-sharmaa)
 
-**Yuchen Liu** · Assistant Professor, NC State University (CSC)
+**Yuchen Liu** · NC State University (CSC)
 
 ---
 
-*This research was conducted as part of my NC State University Computer Science MS Thesis program.*
