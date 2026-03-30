@@ -174,4 +174,4 @@ usharma3@ncsu.edu · [GitHub](https://github.com/utkarsh-us-sharmaa)
 
 ---
 
-*This research was conducted as part of the NC State University Computer Science PhD program.*
+*This research was conducted as part of my NC State University Computer Science MS Thesis program.*
