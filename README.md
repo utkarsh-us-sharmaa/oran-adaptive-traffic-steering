@@ -1,4 +1,4 @@
-# Adaptive Traffic Steering in O-RAN via Hybrid Rule-Based and Reinforcement Learning
+# Adaptive RAN Traffic Steering via Hybrid Rule-Based and Reinforcement Learning
 
 > **Companion repository for the paper:**
 > *"Hybrid Rule-Based and Reinforcement Learning Traffic Steering in Open RAN"*
